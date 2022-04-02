@@ -1,0 +1,419 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat',sans-serif;
+
+}
+
+body{
+  background: #16182C;
+}
+
+.Navbar__Wrapper{
+  z-index: 55;
+  transition: 0.5s;
+  position: fixed;
+  top: 0;
+  height: 65px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.Navbar{
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.Navbar__Logo{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.Navbar__Logo p{
+  width: 95px;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+}
+
+.Navbar__Logo img{
+  width: 50px;
+  height: 50%;
+  object-fit: contain;
+}
+
+.Navbar__Options{
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Navbar__Options p{
+  text-align: center;
+  width: 25%;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.Navbar__Options p:nth-child(4){
+  width: 250px;
+}
+
+
+
+.Navbar__Search{
+  max-width: 250px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.Search__input{
+  width: 70%;
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+  background: none;
+  color: white;
+  text-align: center;
+}
+
+.Navbar__Search img{ 
+  width: 30px;
+  height: 30px;
+  transform: rotate(-90deg);
+}
+.Navbar__Min{
+  display: none;
+}
+
+.Navbar__Wrapper--Show{
+  transition: 0.5s;
+  background: #16182C;
+}
+
+.Banner{
+  border-radius:10px ;
+  position: relative;
+  top: 65px;
+  width: 90%;
+  left: 5%;
+  height: 500px;
+  z-index: -99;
+}
+
+
+
+.Banner__Filter{
+  border-radius:10px ;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.57) 34.24%, rgba(0, 0, 0, 0) 100%);  
+}
+
+.Banner__Info{
+  z-index: 9999;
+  position: absolute;
+  left: 20px;
+  top: 20%;
+  width: 500px;
+  height: 300px;
+  color: white;
+}
+
+.Banner__Info h1{
+  width: 100%;
+  text-align: center;
+}
+
+.Banner__Info p{
+  margin-top: 15px;
+  text-align: center;
+  width: 100%;
+  height: 90px;
+}
+
+.Banner__Buttons{
+  width: 80%;
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.Btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.Btn--Play{
+  background: #df1c1cc1;
+  font-weight: 600;
+}
+
+.Btn--MoreInfo{
+  background: #6d6d6eaf;
+  font-weight: 600;
+  width: 150px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.Play__Button{
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.Banner__Image{
+  border-radius:10px ;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.ContainerMovies{
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 100px;
+}
+
+
+.Row{
+  margin-top: 20px;
+  width: 100%;
+  padding: 15px 0;
+  overflow: hidden;
+
+}
+
+.Row__Name{
+  font-size: 1rem;
+  color: white;
+  font-weight: 600;
+  padding: 15px 0;
+  margin-left: 10px;
+}
+
+
+.Row__Inner{
+  display: flex;
+  align-items: center;
+}
+
+.TopMovies{
+  height: 400px;
+}
+
+
+.RowItem{
+  position: relative;
+  transition: 0.5s;
+  border-radius: 10px;
+  min-width: 230px;
+  height: 150px;
+  margin: 0 10px;
+}
+
+.TopMovies{
+  height: 300px;
+}
+
+.RowItem:hover{
+  transition: 0.3s;
+  transform: scale(1.1);
+  margin: 0 15px;
+  cursor: pointer;
+}
+
+.RowItem:hover > .Item__Filter{
+  transition: .3s;
+  opacity: 1;
+}
+
+.Item__Filter{
+  transition: .5s;
+  opacity: 0;
+  z-index: 5;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #16182c63;
+}
+
+
+.RowItem img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  border-radius: 10px;
+}
+
+
+@media(max-width:1176px){
+  .Navbar__Options{
+    display: none;
+  }
+
+  .Navbar__Options--FullWindow{
+    color: white;
+    position: fixed;
+    top: 65px;
+    left: 0;
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background: #16182ce9;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+
+  .Navbar__Options--FullWindow p:nth-child(1){
+    margin-top: 15px;
+  }
+
+  .Navbar__Options--FullWindow p{
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .Navbar__Min{
+    z-index: 99999;
+    position: relative;
+    margin: 70px auto 0px;
+    color: white;
+    display: flex;
+    width: 150px;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .Navbar__Min p{
+    font-size: 20px;
+  }
+  .Navbar__Min img{
+    transform: rotate(-90deg);
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+  }
+
+
+  .Navbar__Search{
+    width: 250px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  
+  .Search__input{
+    width: 70%;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    background: none;
+    color: white;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.436);
+  }
+  
+  .Navbar__Search img{ 
+    width: 30px;
+    height: 30px;
+    transform: rotate(-90deg);
+  }
+
+}
+
+@media(max-width:1078px){
+
+
+  .Banner__Filter{
+    border-radius:10px ;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.57);  
+  }
+
+
+  .Banner__Info{
+    z-index: 9999;
+    position: absolute;
+    left: 0;
+    top: 30%;
+    width: 100%;
+    height: 300px;
+    color: white;
+  }
+
+  .Banner__Buttons{
+    margin: 0 auto;
+    width: 500px;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+}
+
+@media(max-width:540px){
+  .Navbar__Logo p{
+    display: none;
+  }
+
+  .Navbar__Search img{
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media(max-width:560px){
+  .Banner__Buttons{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+
+@media(max-width:405px){
+
+  .Banner__Info{
+    top: 15%;
+  }
+  
+  .Banner__Buttons{
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
