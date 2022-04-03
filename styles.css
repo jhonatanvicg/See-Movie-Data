@@ -240,7 +240,7 @@ body{
 .RowItem:hover{
   transition: 0.3s;
   transform: scale(1.1);
-  margin: 0 15px;
+  margin: 0 25px;
   cursor: pointer;
 }
 
@@ -248,6 +248,7 @@ body{
   transition: .3s;
   opacity: 1;
 }
+
 
 .Item__Filter{
   transition: .5s;
@@ -257,11 +258,69 @@ body{
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: #16182c63;
+  background-color: #16182cd3;
+}
+
+.Filter__Movie{
+  position: absolute;
+  bottom: 0;
+  height: 90px;
+  width: 230px;
+  display: flex;
+  flex-direction: column;
+}
+
+.Filter__Movie__Options{
+  width: 50%;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 
-.RowItem img{
+.Filter__Movie__Options__Icons{
+  width: 28px;
+  height: 28px;
+  border: 1px solid white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.Filter__Movie__Options__Icons--Play img{
+  width: 15px;
+  height: 15px;
+}
+
+.Filter__Movie__Options__Icons--Play{
+  background: white;
+}
+
+
+.Filter__Movie__Options__Icons--Add{
+  color: white;
+}
+
+.Filter__Movie__Options__Icons--Modal{
+  color: white;
+}
+
+.Filter__Movie__Options__Title{
+  overflow: hidden;
+  max-width: 230px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  margin-left: 5px;
+}
+
+.RowItem__Poster{
   width: 100%;
   height: 100%;
   object-fit: cover;
