@@ -166,6 +166,7 @@ body{
 .Btn--Play{
   background: #df1c1cc1;
   font-weight: 600;
+  color: white;
 }
 
 .Btn--MoreInfo{
@@ -301,6 +302,7 @@ body{
 
 
 .Filter__Movie__Options__Icons--Add{
+  cursor: pointer;
   color: white;
 }
 
@@ -327,6 +329,100 @@ body{
   pointer-events: none;
   border-radius: 10px;
 }
+
+
+
+.Modal{
+  z-index: 999999999;
+  position: fixed;
+  width: 650px;
+  top: 5%;
+  left: 26%;
+  background: #16182C;
+  border-radius:10px ;
+  height: calc(100vh - 100px);
+}
+
+.Close__Modal{
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  border-radius: 50%;
+  background: #16182C;
+  z-index: 10;
+  right: 10px;
+  top: 10px;
+  border: 1px solid white;
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+.Modal__Banner{
+  position: relative;
+  height: 350px;
+  width: 100%;
+}
+
+.Modal__Banner__Filter{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-image: linear-gradient(to top, #16182c, #4a495b29, #82818e00, #bfbec500, #ffffff00);
+}
+
+.Banner__Filter__Container-Button{
+  position: absolute;
+  width: 250px;
+  height: 50px;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.Modal__Banner__Image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+}
+
+.Modal__Main-Info{
+  width: 600px;
+  color: white;
+  max-height: 150px;
+  margin: 0 auto;
+}
+
+.Modal__Main-Info__Title{
+  padding: 5px;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.Modal__Main-Info__Description{
+  padding: 5px;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.Modal__Extra-Info{
+  font-weight: 600;
+  width: 600px;
+  color: rgba(255, 255, 255, 0.381);
+  max-height: 150px;
+  margin: 10px auto;
+}
+
+
 
 
 @media(max-width:1176px){

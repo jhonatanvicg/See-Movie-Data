@@ -3,6 +3,7 @@ import Banner from '../components/Banner'
 import Navbar from '../components/Navbar'
 import WrapperHeader from '../container/WrapperHeader'
 import ContainerMovies from '../container/ContainerMovies'
+import Modal from '../components/Modal'
 import '../styles.css'
 
 
@@ -12,6 +13,7 @@ function MyApp({ Component, pageProps }) {
 
   return(
     <>
+        <Modal />
         <Navbar />
         <Banner/>
     <ContainerMovies />
