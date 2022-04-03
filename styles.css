@@ -341,6 +341,7 @@ body{
   background: #16182C;
   border-radius:10px ;
   height: calc(100vh - 100px);
+  display: none;
 }
 
 .Close__Modal{
