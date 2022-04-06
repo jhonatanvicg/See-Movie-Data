@@ -2,7 +2,7 @@ import { FaTimes } from "react-icons/fa"
 import ButtonAdd from "./ButtonAdd";
 import Button from "./Button";
 import { useContext, useState } from "react";
-import AppContext from "../context/Appcontext";
+import AppContext from "../context/AppContext";
 
 const Modal = () => {
 

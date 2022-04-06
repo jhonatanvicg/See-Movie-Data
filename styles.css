@@ -60,6 +60,13 @@ body{
   color: white;
   font-weight: 600;
   font-size: 18px;
+  transition: .3s;
+}
+
+.Navbar__Options p:hover{
+  cursor: pointer;
+  transition: .3s;
+  color:wheat ;
 }
 
 .Navbar__Options p:nth-child(4){

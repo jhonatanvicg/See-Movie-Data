@@ -3,7 +3,7 @@ import ButtonPlay from "./ButtonPlay"
 import ButtonAdd from "./ButtonAdd"
 import { AiOutlineDown } from "react-icons/ai";
 import { FaPlus } from "react-icons/fa"
-import AppContext from "../context/Appcontext";
+import AppContext from "../context/AppContext";
 import { useContext } from "react";
 
 
