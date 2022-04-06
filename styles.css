@@ -673,9 +673,20 @@ body{
 }
 
 @media(max-width:800px){
+  .Banner{
+    border-radius:0 ;
+    position: relative;
+    top: 65px;
+    width: 100%;
+    left: 0;
+    height: 500px;
+    z-index: -99;
+  }
+  
   .Modal{
     width: 80%;
   }
+
 }
 
 @media(max-width:640px){
