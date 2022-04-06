@@ -395,10 +395,11 @@ body{
 }
 
 .Modal__Main-Info{
-  width: 600px;
+  width: auto;
   color: white;
-  max-height: 150px;
   margin: 0 auto;
+  padding-left:20px ;
+
 }
 
 .Modal__Main-Info__Title{
@@ -415,10 +416,11 @@ body{
 
 .Modal__Extra-Info{
   font-weight: 600;
-  width: 600px;
+  width: auto;
   color: rgba(255, 255, 255, 0.381);
   max-height: 150px;
   margin: 10px auto;
+  padding-left:20px ;
 }
 
 .Extra-Info__Title img{
@@ -455,6 +457,7 @@ body{
 .General__Item--Genres{
   display: flex;
   align-items: center;
+  padding-bottom: 10px;
 }
 
 .General__Item:nth-child(3){
@@ -485,8 +488,29 @@ body{
   animation: ModalWrapperOpacityHidden 3s linear forwards;
 }
 
+.Modal__Wrapper--Show{
+  display: flex;
+  animation: ModalWrapperOpacityShow .3s linear forwards;
+}
+
 .Modal--Hidden{
   animation: ModalClosing 1s linear forwards;
+}
+
+
+.Modal--Show{
+  animation: ModalOpen .3s linear forwards;
+}
+
+.Speed--Hidden{
+  animation: SpeedHidden .1s linear forwards;
+}
+
+@keyframes SpeedHidden{
+
+  100% {
+    transform: translateY(10000px)
+  }
 }
 
 
@@ -613,6 +637,9 @@ body{
 
 @media(max-width:1078px){
 
+  .Modal{
+    width: 60%;
+  }
 
   .Banner__Filter{
     border-radius:10px ;
@@ -643,6 +670,18 @@ body{
     align-items: center;
   }
   
+}
+
+@media(max-width:800px){
+  .Modal{
+    width: 80%;
+  }
+}
+
+@media(max-width:640px){
+  .Modal{
+    width: 90%;
+  }
 }
 
 @media(max-width:540px){

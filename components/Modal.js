@@ -1,23 +1,20 @@
 import { FaTimes } from "react-icons/fa"
 import ButtonAdd from "./ButtonAdd";
 import Button from "./Button";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import AppContext from "../context/Appcontext";
 
 const Modal = () => {
 
-  const[modalWrapperAnimation, setModalWrapperAnimation] = useState('')
-  const[modalAnimation, setModalAnimation] = useState('')
-
-  const closeModal = ()=>{
-    console.log("Close Modal")
-    setModalWrapperAnimation("Modal__Wrapper--Hidden")
-    setModalAnimation("Modal--Hidden")
+  const {closeModal,modalWrapperAnimation,modalAnimation} = useContext(AppContext)
+  const handleClick = ()=>{
+      closeModal()
   }
   
   return ( 
     <div className={`Modal__Wrapper ${modalWrapperAnimation}`}>
       <div className={`Modal ${modalAnimation}`}>
-        <div className="Close__Modal" onClick={()=>{closeModal()}}>
+        <div className="Close__Modal" onClick={()=>{handleClick()}}>
           <FaTimes />
         </div>
         <div className="Modal__Banner">

@@ -1,24 +1,26 @@
 import App from 'next/app'
+import AppContext from '../context/Appcontext'
 import Banner from '../components/Banner'
 import Navbar from '../components/Navbar'
 import WrapperHeader from '../container/WrapperHeader'
 import ContainerMovies from '../container/ContainerMovies'
 import Modal from '../components/Modal'
+import useModalState from '../hooks/useModalState'
 import '../styles.css'
 
 
 function MyApp({ Component, pageProps }) {
 
-  
+  const initialModalState = useModalState()
 
   return(
-    <>
-
+    <AppContext.Provider value={initialModalState}>
+        <Modal />
         <Navbar />
         <Banner/>
         <ContainerMovies />
       <Component {...pageProps} />
-    </>
+    </AppContext.Provider>
   )
 }
 

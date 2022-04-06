@@ -3,19 +3,22 @@ import ButtonPlay from "./ButtonPlay"
 import ButtonAdd from "./ButtonAdd"
 import { AiOutlineDown } from "react-icons/ai";
 import { FaPlus } from "react-icons/fa"
-
+import AppContext from "../context/Appcontext";
+import { useContext } from "react";
 
 
 
 const RowItem = ({Topic}) => {
   let action = "GoMovie";
 
+  const { openModal } = useContext(AppContext)
 
   const handleMovie = ()=>{
     switch(action){
       case "DisplayModal":
         console.log("Desplegando Modal")
         action = "GoMovie"
+        openModal()
       break;
       case "AddMovie":
         console.log("Agregando peicula")
@@ -28,6 +31,8 @@ const RowItem = ({Topic}) => {
       case "GoMovie":
         console.log("Yendo a pelicua")
         action = "GoMovie"
+        openModal()
+
       break;
     }
   }
