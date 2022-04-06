@@ -1,5 +1,5 @@
 import App from 'next/app'
-import AppContext from '../context/Appcontext'
+import AppContext from '../context/AppContext'
 import Banner from '../components/Banner'
 import Navbar from '../components/Navbar'
 import WrapperHeader from '../container/WrapperHeader'
