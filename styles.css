@@ -333,15 +333,13 @@ body{
 
 
 .Modal{
-  z-index: 999999999;
+  z-index: 88888888;
   position: fixed;
-  width: 650px;
-  top: 5%;
-  left: 26%;
+  width: 50%;
   background: #16182C;
   border-radius:10px ;
   height: calc(100vh - 100px);
-  display: none;
+  overflow: auto;
 }
 
 .Close__Modal{
@@ -422,6 +420,116 @@ body{
   max-height: 150px;
   margin: 10px auto;
 }
+
+.Extra-Info__Title img{
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+}
+
+.Extra-Info__Title{
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.General__Item{
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+}
+
+
+.General__Item--String{
+  display: flex;
+  align-items: flex-start;
+  margin-top: 10px;
+  width: 150px;
+}
+
+
+
+.General__Item--Value{
+  margin-top: 10px;
+}
+
+.General__Item--Genres{
+  display: flex;
+  align-items: center;
+}
+
+.General__Item:nth-child(3){
+  margin-top: 20px;
+}
+
+.Item__Genre{
+  text-align: center;
+  font-size: 12px;
+  margin: 0 10px;
+}
+
+.Modal__Wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+  background: #000000a9;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 1;
+}
+
+.Modal__Wrapper--Hidden{
+  animation: ModalWrapperOpacityHidden 3s linear forwards;
+}
+
+.Modal--Hidden{
+  animation: ModalClosing 1s linear forwards;
+}
+
+
+
+@keyframes ModalWrapperOpacityShow{
+  0%   {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes ModalWrapperOpacityHidden{
+  0%   {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10000px);
+  }
+}
+
+
+@keyframes ModalOpen{
+  0%   {
+    transform: translateY(1500px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes ModalClosing{
+  0%   {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(1500px);
+  }
+}
+
 
 
 

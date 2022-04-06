@@ -13,10 +13,10 @@ function MyApp({ Component, pageProps }) {
 
   return(
     <>
-        <Modal />
+
         <Navbar />
         <Banner/>
-    <ContainerMovies />
+        <ContainerMovies />
       <Component {...pageProps} />
     </>
   )
