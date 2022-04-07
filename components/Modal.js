@@ -1,15 +1,107 @@
 import { FaTimes } from "react-icons/fa"
 import ButtonAdd from "./ButtonAdd";
 import Button from "./Button";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AppContext from "../context/AppContext";
+const base_url = "https://image.tmdb.org/t/p/original/"
+
 
 const Modal = () => {
 
-  const {closeModal,modalWrapperAnimation,modalAnimation} = useContext(AppContext)
+  const [modalData, setModalData] = useState({})
+  const [arrGenres,setArrGenres] = useState([])
+  const {closeModal,modalWrapperAnimation,modalAnimation, getModalData} = useContext(AppContext)
+  const genres = [{
+                    "id":28,"name":"Action"
+                  },{
+                    "id":12,"name":"Adventure"
+                  },{
+                    "id":16,"name":"Animation"
+                  },{
+                    "id":35,"name":"Comedy"
+                  },{
+                    "id":80,"name":"Crime"
+                  }, {
+                    "id":99,"name":"Documentary"
+                  },{
+                    "id":18,"name":"Drama"
+                  },{
+                    "id":10751,"name":"Family"
+                  }, {
+                    "id":14,"name":"Fantasy"
+                  }, {
+                    "id":36,"name":"History"
+                  },{
+                    "id":27,"name":"Horror"
+                  },  {
+                    "id":10402,"name":"Music"
+                  },{
+                    "id":9648,"name":"Mystery"
+                  },{
+                    "id":10749,"name":"Romance"
+                  },{
+                    "id":878,"name":"Science Fiction"
+                  },{
+                    "id":10770,"name":"TV Movie"
+                  },{
+                    "id":53,"name":"Thriller"
+                  },{
+                    "id":10752,"name":"War"
+                  },{
+                    "id":37,"name":"Western"
+                }]
+
+  
   const handleClick = ()=>{
       closeModal()
   }
+
+  const getMovieName = ()=>{
+    let name = 'Uknown'
+    if(modalData.title != undefined ){
+      name = modalData.title
+    }else if(modalData.name != undefined){
+      name = modalData.name
+    }else{
+      name = modalData.original_name
+    }
+
+    return name;
+  }
+  
+
+  const getMovieMedia = ()=>{
+    let mediaType = ''
+    if(modalData.media_type == undefined){
+      mediaType = 'Uknown'
+    }else if( modalData.media_type == 'tv'){
+      mediaType = 'TV Serie'
+    }else{
+      mediaType = modalData.media_type
+    }
+
+    return mediaType
+  }
+
+  const getGenres = (genresData)=>{
+    if(genresData != undefined){
+      let genresArr = []
+      genresData.forEach((el,index)=>{
+        genres.forEach((elementGenre,indexGenre)=>{
+          if(elementGenre.id == el){
+            genresArr.push(elementGenre.name)
+          }
+        })
+      })
+      setArrGenres(genresArr)
+    }
+  }
+
+  useEffect(()=>{
+    setModalData(getModalData())
+    getGenres(modalData.genre_ids)
+    console.log("Esta es la data del modal: ",modalData)
+  },[modalWrapperAnimation])
   
   return ( 
     <div className={`Modal__Wrapper ${modalWrapperAnimation}`}>
@@ -24,16 +116,14 @@ const Modal = () => {
               <ButtonAdd />
             </div>
           </div>
-          <img className="Modal__Banner__Image" src="/images/halo_serie.webp" alt="" />
+          <img className="Modal__Banner__Image" src={`${base_url}${modalData.backdrop_path}`} alt="" />
         </div>
         <div className="Modal__Main-Info">
           <div className="Modal__Main-Info__Title">
-            <p>This is the title jijijiji</p>
+            <p>{getMovieName()}</p>
           </div>
           <div className="Modal__Main-Info__Description">
-            Stranded at a rest stop in the mountains during a blizzard, a recovering addict 
-            discovers a kidnapped child hidden in a car belonging to one of the people inside 
-            the building which sets her on a terrifying struggle to identify who among them is the kidnapper
+            {modalData.overview}
           </div>
         </div>
         <div className="Modal__Extra-Info">
@@ -44,17 +134,20 @@ const Modal = () => {
             <div className="Extra-Info__General">
               <div className="General__Item">
                 <p className="General__Item--String">Release Date:</p>
-                <div className="General__Item--Value">1999-10-15</div>
+                <div className="General__Item--Value">{modalData.release_date == undefined ? modalData.first_air_date : modalData.release_date}</div>
               </div>
               <div className="General__Item">
-                <p className="General__Item--String">Duration:</p>
-                <div className="General__Item--Value">139 Minutes</div>
+                <p className="General__Item--String">Media Type:</p>
+                <div className="General__Item--Value">{getMovieMedia()}</div>
               </div>
               <div className="General__Item General__Item--Genres">
                 <p className="General__Item--Genres--String">Genres: </p>
-                <p className="Item__Genre">Drama</p>
-                <p className="Item__Genre">Action</p>
-                <p className="Item__Genre">Comedy</p>
+                {
+
+                  arrGenres.map((genre)=>(
+                    <p className="Item__Genre">{genre}</p>
+                  ))
+                }
               </div>
             </div>
           </div>

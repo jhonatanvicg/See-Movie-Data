@@ -4,6 +4,7 @@ const useModalState = () => {
   
   const[modalWrapperAnimation, setModalWrapperAnimation] = useState('Speed--Hidden')
   const[modalAnimation, setModalAnimation] = useState('')
+  const[modalInfo, setModalInfo] = useState({})
 
   const closeModal = ()=>{
     setModalWrapperAnimation("Modal__Wrapper--Hidden")
@@ -15,12 +16,22 @@ const useModalState = () => {
     setModalWrapperAnimation("Modal__Wrapper--Show")
     setModalAnimation("Modal--Show")
   }
+
+  const setModalData = (movie)=>{
+    setModalInfo(movie)
+  }
+
+  const getModalData = ()=>{
+    return modalInfo
+  }
   
   return {
     closeModal,
     openModal,
     modalWrapperAnimation,
-    modalAnimation
+    modalAnimation,
+    setModalData,
+    getModalData
   }
 }
  
