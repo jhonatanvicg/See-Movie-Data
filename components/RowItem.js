@@ -29,12 +29,10 @@ const RowItem = ({Topic, movie}) => {
   }
 
   const handleClickDown = ()=>{
-    console.log("Estamos en down")
     setItemPosition(itemReference.current.getBoundingClientRect().x)
   }
   
   const handleClickUp = ()=>{
-    console.log("Estamos en up")
     if(itemReference.current.getBoundingClientRect().x == itemPosition){
       handleMovie()
     }
@@ -43,21 +41,17 @@ const RowItem = ({Topic, movie}) => {
   const handleMovie = ()=>{
     switch(action){
       case "DisplayModal":
-        console.log("Desplegando Modal")
         action = "GoMovie"
         setModalData(movie)
         openModal()
       break;
       case "AddMovie":
-        console.log("Agregando peicula")
         action = "GoMovie"
       break;
       case "PlayTrailer":
-        console.log("Yendo a tariler")
         action = "GoMovie"
       break;
       case "GoMovie":
-        console.log("Yendo a pelicua")
         action = "GoMovie"
         setModalData(movie)
         openModal()
@@ -68,7 +62,7 @@ const RowItem = ({Topic, movie}) => {
 
 
   return ( 
-    <motion.div onMouseDown={()=>handleClickDown()} ref={itemReference}  onMouseUp={()=>{handleClickUp()}} className={`RowItem ${Topic}`}>
+    <motion.div  onMouseDown={()=>handleClickDown()} ref={itemReference}  onMouseUp={()=>{handleClickUp()}} className={`RowItem ${Topic}`}>
       <div className="Item__Filter">
         <div className="Filter__Movie">
           <div className="Filter__Movie__Options">
@@ -87,7 +81,7 @@ const RowItem = ({Topic, movie}) => {
           </div>
         </div>
       </div>
-      <img className="RowItem__Poster" src={`${base_url}${movie.poster_path}`} alt="" />
+      <img className="RowItem__Poster" src={`${base_url}${movie.backdrop_path}`} alt="" />
     </motion.div>
    );
 }

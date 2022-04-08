@@ -10,8 +10,6 @@ const Row = ({sectionRow, rowTitle,Topic, fetchUrl}) => {
   const [movies,setMovies] = useState([])
 
   useEffect(()=>{
-    console.log("Este es el rowReference Scroll: ",rowReference.current.scrollWidth)
-    console.log("Este es el rowReference Offset: ",rowReference.current.offsetWidth)
     
     async function getData(){
       const request = await axios.get(fetchUrl) 
