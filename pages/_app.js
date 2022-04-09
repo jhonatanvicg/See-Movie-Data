@@ -1,26 +1,22 @@
 import App from 'next/app'
 import AppContext from '../context/AppContext'
-import Banner from '../components/Banner'
-import Navbar from '../components/Navbar'
-import WrapperHeader from '../container/WrapperHeader'
-import ContainerMovies from '../container/ContainerMovies'
-import Modal from '../components/Modal'
 import useModalState from '../hooks/useModalState'
+import Navbar from '../components/Navbar'
 import '../styles.css'
 
 
 function MyApp({ Component, pageProps }) {
 
-  const initialModalState = useModalState()
+  const initialModalState = useModalState(AppContext)
+
 
   return(
     <AppContext.Provider value={initialModalState}>
-        <Modal />
-        <Navbar />
-        <Banner/>
-        <ContainerMovies />
+
+      <Navbar />
       <Component {...pageProps} />
-    </AppContext.Provider>
+  </AppContext.Provider>
+
   )
 }
 

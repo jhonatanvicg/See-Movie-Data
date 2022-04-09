@@ -3,22 +3,21 @@ import { motion } from "framer-motion"
 import { useEffect, useRef, useState } from "react";
 import axios from "./../hooks/useAxios"
 
-const Row = ({sectionRow, rowTitle,Topic, fetchUrl}) => {
+const Row = ({ sectionRow, rowTitle,Topic, fetchUrl}) => {
 
   const [width,setWidth] = useState(0);
   const rowReference = useRef()
   const [movies,setMovies] = useState([])
-
   useEffect(()=>{
-    
-    async function getData(){
-      const request = await axios.get(fetchUrl) 
-      setMovies(request.data.results)
-      let moviesLength = request.data.results.length * 230;
-      setWidth(moviesLength)
-      return request
-    } 
-    getData()
+
+      async function getData(){
+        const request = await axios.get(fetchUrl) 
+        setMovies(request.data.results)
+        let moviesLength = request.data.results.length * 230;
+        setWidth(moviesLength)
+        return request
+      } 
+      getData()
   },[])
 
   return ( 

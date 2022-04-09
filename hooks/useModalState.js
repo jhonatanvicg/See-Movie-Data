@@ -82,6 +82,7 @@ const useModalState = () => {
     typeNotification,
     textNotification,
     iconNotification,
+    favoriteMovies,
     setModalData,
     getModalData,
     addFavoriteMovie

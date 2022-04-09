@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import Link from "next/link";
 
 const Navbar = ()=>{
 
@@ -60,10 +61,14 @@ const Navbar = ()=>{
             </div>
 
             <div className={ NavbarScreen == true && screenSize.width < 1176 ? "Navbar__Options--FullWindow" : "Navbar__Options"  }>
-              <p>Home</p>
+              <Link href="/">
+                <p>Home</p>
+              </Link>
               <p>Movies</p>
               <p>TV Series</p>
-              <p>My Favorite's List</p>
+              <Link href="/Favorites">
+                  <p>My Favorite's List</p>
+              </Link>
             </div>
 
 

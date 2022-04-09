@@ -6,7 +6,7 @@ const ContainerMovies = () => {
 
 
   return ( 
-    <div className="ContainerMovies" on>
+    <div className="ContainerMovies" >
         <Row rowTitle={"Movies Data Trending"} Topic={"TopMovies"} fetchUrl={requests.fetchTopRated} />
         <Row rowTitle={"Movie Data Originals"} fetchUrl={requests.fetchNetflixOriginals} />
         <Row rowTitle={"Trend"} fetchUrl={requests.fetchTrending} />
