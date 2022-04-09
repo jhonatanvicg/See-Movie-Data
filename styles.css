@@ -114,7 +114,7 @@ body{
   width: 90%;
   left: 5%;
   height: 500px;
-  z-index: -99;
+  z-index: 0;
 }
 
 
@@ -182,6 +182,7 @@ body{
   width: 150px;
   font-size: 14px;
   font-weight: 500;
+  cursor: pointer;
 }
 
 .Play__Button{
@@ -742,5 +743,65 @@ body{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+  }
+}
+
+.Notification{
+  top: 65px;
+  right: 0;
+  z-index: 999999;
+  position: fixed;
+  width: 300px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Notification--Hidden{
+  right: -300px;
+}
+
+.Notification--Show{
+  animation-name: NotificationShow;
+  animation-duration: .5s;
+}
+
+.Notification--Hidde{
+  animation-name: NotificationHidde;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+}
+
+.Notification--Info{
+  background: #0f81de;
+  color: white;
+}
+
+.Notification--Danger{
+  background: #b20f0f;
+  color: white;
+}
+
+.Notification p{
+  margin-right: 15px;
+}
+
+
+@keyframes NotificationShow{
+  from{
+    right:-300px;
+  }
+  to{
+    right: 0;
+  }
+}
+
+@keyframes NotificationHidde{
+  from{
+    right: 0;
+  }
+  to{
+    right:-300px;
   }
 }

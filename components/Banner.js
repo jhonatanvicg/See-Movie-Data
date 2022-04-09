@@ -1,8 +1,9 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Button from "./Button";
 import axios from "./../hooks/useAxios";
 import requests from "../hooks/useRequests";
+import AppContext from "../context/AppContext";
 const base_url = "https://image.tmdb.org/t/p/original/";
 
 
@@ -10,6 +11,14 @@ const base_url = "https://image.tmdb.org/t/p/original/";
 const Banner = () => {
 
   const [bannerInfo, setBannerInfo] = useState({})
+  const { openModal , setModalData } = useContext(AppContext)
+
+
+  const handleMoreInfo = (movie)=>{
+    console.log("Clickando more")
+    setModalData(movie)
+    openModal()
+  }
 
   useEffect(()=>{
     async function getDataBanner(){
@@ -44,7 +53,10 @@ const Banner = () => {
         </p>
         <div className="Banner__Buttons">
           <Button classButton={"Btn--Play"} imageSrc={"/images/play-svgrepo-com.svg"} textButton={"Play"} />
-          <Button classButton={"Btn--MoreInfo"} imageSrc={"/images/more.png"} textButton={"More Info"} />
+          <div onClick={()=>handleMoreInfo(bannerInfo)} className={`Btn Btn--MoreInfo`}>
+            <img className="Play__Button" src="/images/more.png" alt="" />
+            More Info
+          </div>
         </div>
       </div>
       <img className="Banner__Image" src={`${base_url}${bannerInfo.backdrop_path}`} alt="" />

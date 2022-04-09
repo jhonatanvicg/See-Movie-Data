@@ -4,14 +4,14 @@ import ButtonAdd from "./ButtonAdd"
 import { AiOutlineDown } from "react-icons/ai";
 import { FaPlus } from "react-icons/fa"
 import AppContext from "../context/AppContext";
-import { useContext, useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";;
 const base_url = "https://image.tmdb.org/t/p/original/"
 
 
 
 const RowItem = ({Topic, movie}) => {
   let action = "GoMovie";
-  const { openModal , setModalData } = useContext(AppContext)
+  const { openModal , setModalData, addFavoriteMovie } = useContext(AppContext)
   const [itemPosition,setItemPosition] = useState()
   const itemReference = useRef()
 
@@ -34,11 +34,16 @@ const RowItem = ({Topic, movie}) => {
   
   const handleClickUp = ()=>{
     if(itemReference.current.getBoundingClientRect().x == itemPosition){
-      handleMovie()
+      setTimeout(()=>{
+        handleMovie()
+      },
+        100       
+      )
     }
   }
 
   const handleMovie = ()=>{
+    console.log("Este es el valor del action::::::::::: ",action)
     switch(action){
       case "DisplayModal":
         action = "GoMovie"
@@ -46,7 +51,9 @@ const RowItem = ({Topic, movie}) => {
         openModal()
       break;
       case "AddMovie":
+        addFavoriteMovie(movie)
         action = "GoMovie"
+        console.log("Estamos agregando la pelicula")
       break;
       case "PlayTrailer":
         action = "GoMovie"
@@ -69,7 +76,9 @@ const RowItem = ({Topic, movie}) => {
           <div onClick={()=>action="PlayTrailer"}  className="Filter__Movie__Options__Icons  Filter__Movie__Options__Icons--Play">
             <img src="/images/play-button-arrowhead.png" alt="" />
           </div>
-            <div  onClick={()=>action="AddMovie"} className="Filter__Movie__Options__Icons Filter__Movie__Options__Icons--Add">
+            <div  onClick={()=>{
+              console.log("AGREGANDO AL ADDDDD")
+              action="AddMovie"}} className="Filter__Movie__Options__Icons Filter__Movie__Options__Icons--Add">
               <FaPlus />
             </div>
             <div onClick={()=>action="DisplayModal"}  className="Filter__Movie__Options__Icons Filter__Movie__Options__Icons--Modal ">

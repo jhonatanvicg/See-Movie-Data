@@ -113,7 +113,7 @@ const Modal = () => {
           <div className="Modal__Banner__Filter">
             <div className="Banner__Filter__Container-Button">
               <Button classButton={"Btn--Play"} imageSrc={"/images/play-svgrepo-com.svg"} textButton={"Play"}  />
-              <ButtonAdd />
+              <ButtonAdd movie={modalData} />
             </div>
           </div>
           <img className="Modal__Banner__Image" src={`${base_url}${modalData.backdrop_path}`} alt="" />
