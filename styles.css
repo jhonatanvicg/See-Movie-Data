@@ -211,6 +211,7 @@ body{
   width: 100%;
   padding: 15px 0;
   overflow: hidden;
+  touch-action: pan-y;
 
 }
 
@@ -694,7 +695,6 @@ body{
     width: 100%;
     left: 0;
     height: 500px;
-    z-index: -99;
   }
   
   .Modal{
