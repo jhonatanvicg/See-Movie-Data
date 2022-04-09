@@ -55,17 +55,23 @@ const Navbar = ()=>{
 
       <nav className={`Navbar__Wrapper ${showNavbar && "Navbar__Wrapper--Show"}`}>
           <div className="Navbar">
-            <div className="Navbar__Logo">
-              <p>Movies Data</p>
-              <img src="/images/popcorn-svgrepo-com.svg" alt="" />
-            </div>
+              <Link href="/">
+                <div className="Navbar__Logo">
+                      <p>Movies Data</p>
+                      <img src="/images/popcorn-svgrepo-com.svg" alt="" />
+                </div>
+              </Link>
 
             <div className={ NavbarScreen == true && screenSize.width < 1176 ? "Navbar__Options--FullWindow" : "Navbar__Options"  }>
               <Link href="/">
                 <p>Home</p>
               </Link>
-              <p>Movies</p>
-              <p>TV Series</p>
+              <Link href="/Movies">
+                <p>Movies</p>
+              </Link>
+              <Link href="/Series">
+                <p>TV Series</p>
+              </Link>
               <Link href="/Favorites">
                   <p>My Favorite's List</p>
               </Link>

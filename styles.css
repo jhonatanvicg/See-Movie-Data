@@ -32,6 +32,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: space-around;
+  cursor: pointer;
 }
 
 .Navbar__Logo p{

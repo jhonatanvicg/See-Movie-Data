@@ -12,7 +12,7 @@ const HomePage = ()=>{
         <Notification   />
         <Modal />
         <Banner/>
-        <ContainerMovies />
+        <ContainerMovies from="index" />
     </>
     )
 }
