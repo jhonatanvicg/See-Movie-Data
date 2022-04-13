@@ -29,14 +29,20 @@ const RowItem = ({Topic, movie}) => {
   }
 
   const getMovieImage = ()=>{
-    let path = '/images/placeholder.png'
-    if(movie.backdrop_path==undefined){
-      path= movie.poster_path
-    }else{
+    let path = ''
+    if(movie.backdrop_path!=undefined){
       path = movie.backdrop_path;
+    }else if(movie.poster_path!=undefined){
+      path= movie.poster_path
     }
 
-    return base_url+path;
+    if(path==''){
+      path = "/images/placeholder.png"
+    }else{
+      path = base_url+path
+    }
+
+    return path;
   }
 
   const handleClickDown = ()=>{

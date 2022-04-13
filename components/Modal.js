@@ -68,6 +68,23 @@ const Modal = () => {
 
     return name;
   }
+
+  const getMovieImage = ()=>{
+    let path = ''
+    if(modalData.backdrop_path!=undefined){
+      path = modalData.backdrop_path;
+    }else if(modalData.poster_path!=undefined){
+      path= modalData.poster_path
+    }
+
+    if(path==''){
+      path = "/images/placeholder.png"
+    }else{
+      path = base_url+path
+    }
+
+    return path;
+  }
   
 
   const getMovieMedia = ()=>{
@@ -116,7 +133,7 @@ const Modal = () => {
               <ButtonAdd movie={modalData} />
             </div>
           </div>
-          <img className="Modal__Banner__Image" src={`${base_url}${modalData.backdrop_path}`} alt="" />
+          <img className="Modal__Banner__Image" src={getMovieImage()} alt="" />
         </div>
         <div className="Modal__Main-Info">
           <div className="Modal__Main-Info__Title">
