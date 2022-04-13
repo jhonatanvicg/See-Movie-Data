@@ -28,6 +28,17 @@ const RowItem = ({Topic, movie}) => {
     return name;
   }
 
+  const getMovieImage = ()=>{
+    let path = '/images/placeholder.png'
+    if(movie.backdrop_path==undefined){
+      path= movie.poster_path
+    }else{
+      path = movie.backdrop_path;
+    }
+
+    return base_url+path;
+  }
+
   const handleClickDown = ()=>{
     setItemPosition(itemReference.current.getBoundingClientRect().x)
   }
@@ -77,7 +88,6 @@ const RowItem = ({Topic, movie}) => {
             <img src="/images/play-button-arrowhead.png" alt="" />
           </div>
             <div  onClick={()=>{
-              console.log("AGREGANDO AL ADDDDD")
               action="AddMovie"}} className="Filter__Movie__Options__Icons Filter__Movie__Options__Icons--Add">
               <FaPlus />
             </div>
@@ -90,7 +100,7 @@ const RowItem = ({Topic, movie}) => {
           </div>
         </div>
       </div>
-      <img className="RowItem__Poster" src={`${base_url}${movie.backdrop_path}`} alt="" />
+      <img className="RowItem__Poster" src={getMovieImage()} alt="" />
     </motion.div>
    );
 }
