@@ -10,6 +10,7 @@ const useModalState = () => {
   const[modalAnimation, setModalAnimation] = useState('')
   const[modalInfo, setModalInfo] = useState({})
   const[ favoriteMovies , setFavoriteMovies ]= useState(initialFavoriteMoviesState)
+  const[listSearch , setListSearch] = useState('')
   const [showNotification,setShowNotification] = useState("Notification--Hidden")
   const [typeNotification,setTypeNotification] = useState()
   const [textNotification,setTextNotification] = useState()
@@ -84,6 +85,8 @@ const useModalState = () => {
     iconNotification,
     favoriteMovies,
     setModalData,
+    setListSearch,
+    listSearch,
     getModalData,
     addFavoriteMovie
   }

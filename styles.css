@@ -94,6 +94,10 @@ body{
   text-align: center;
 }
 
+.Navbar__Search  img{
+  cursor: pointer;
+}
+
 .Navbar__Search img{ 
   width: 30px;
   height: 30px;
@@ -524,7 +528,7 @@ body{
 
 
 
-.Favorites{
+.Favorites, .Search{
   width: 90%;
   height: auto;
   margin-left: 5%;
@@ -534,6 +538,7 @@ body{
   align-items: center;
   flex-wrap: wrap;
   overflow: none;
+  margin-bottom: 20px;
 }
 
 .Favorites__Empty{

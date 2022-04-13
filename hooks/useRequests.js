@@ -10,6 +10,7 @@ const requests = {
   fetchDocumentaries: `/discover/movie?api_key=${API__KEY}&with_genres=99`,
   fetchMovieByGenre:`/discover/movie?api_key=${API__KEY}&with_genres=`,
   fetchTVByGenre:`/discover/tv?api_key=${API__KEY}&with_genres=`,
+  fetchSearch: `https://api.themoviedb.org/3/search/movie?api_key=${API__KEY}&query=`,
   arrGenresMoviesId: [
                         {"id":28,"name":"Action"},
                         {"id":12,"name":"Adventure"},

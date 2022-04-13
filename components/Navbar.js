@@ -1,4 +1,7 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import axios from "../hooks/useAxios"
+import requests from "../hooks/useRequests";
+import AppContext from "../context/AppContext";
 import Link from "next/link";
 
 const Navbar = ()=>{
@@ -7,6 +10,8 @@ const Navbar = ()=>{
   const [NavbarScreen,setNavbarScreen] = useState(false);
   const[screenSize,setScreenSize] = useState({width:0});
   const[showNavbar,setShowNavbar] = useState(true);
+  const [search,setSearch] = useState('')
+  const { setListSearch } = useContext(AppContext)
   
 
   const handleNavbarMin = ()=>{
@@ -21,6 +26,27 @@ const Navbar = ()=>{
   const handleShowNavbar = (valueBoolean)=>{
     setShowNavbar(valueBoolean)
 
+  }
+
+  const getSearch = async()=>{
+    try{
+      let response = await axios.get(requests.fetchSearch+search+"&page=1")
+      setListSearch(response.data.results)
+    }catch(error){
+      console.log(error)
+    }
+
+  }
+
+
+  const clickGoToSearch = ()=>{
+    getSearch()
+  }
+
+  const handleSearch = (e)=>{
+    if(e.target.value!=''){
+      setSearch(e.target.value)
+    }
   }
 
   useEffect(()=>{
@@ -80,8 +106,10 @@ const Navbar = ()=>{
 
 
             <div className="Navbar__Search">
-              <input className="Search__input" type="text" placeholder="Search..." />
-              <img src="/images/search-svgrepo-com.svg" alt="" />
+              <input onChange={handleSearch} className="Search__input" type="text" placeholder="Search..." />
+              <Link href="/Search">
+                <img src="/images/search-svgrepo-com.svg" onClick={()=>clickGoToSearch()} alt="" />
+              </Link>
             </div>
           </div>
 
