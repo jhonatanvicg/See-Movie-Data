@@ -15,7 +15,6 @@ const Navbar = ()=>{
   
 
   const handleNavbarMin = ()=>{
-    console.log("Presionando el boton del navbar")
     setNavbarScreen(!NavbarScreen)
   }
 
@@ -47,6 +46,10 @@ const Navbar = ()=>{
     if(e.target.value!=''){
       setSearch(e.target.value)
     }
+  }
+
+  const optionsClicked = ()=>{
+    setNavbarScreen(false)
   }
 
   useEffect(()=>{
@@ -89,17 +92,17 @@ const Navbar = ()=>{
               </Link>
 
             <div className={ NavbarScreen == true && screenSize.width < 1176 ? "Navbar__Options--FullWindow" : "Navbar__Options"  }>
-              <Link href="/">
-                <p>Home</p>
+              <Link href="/" >
+                <p onClick={()=>{optionsClicked()}}>Home</p>
               </Link>
               <Link href="/Movies">
-                <p>Movies</p>
+                <p onClick={()=>{optionsClicked()}}>Movies</p>
               </Link>
               <Link href="/Series">
-                <p>TV Series</p>
+                <p onClick={()=>{optionsClicked()}}>TV Series</p>
               </Link>
               <Link href="/Favorites">
-                  <p>My Favorite's List</p>
+                  <p onClick={()=>{optionsClicked()}}>My Favorite's List</p>
               </Link>
             </div>
 

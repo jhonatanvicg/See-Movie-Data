@@ -26,7 +26,7 @@ const Row = ({ sectionRow, rowTitle,Topic, fetchUrl}) => {
       <motion.div ref={rowReference} className="Row__Inner" dragConstraints={{right:0,left:- width}} drag="x">
         {
           movies.map(movie=>(
-            <RowItem key={`${Topic}-${movie.id}`} Topic={Topic} movie={movie} />
+            <RowItem  key={`${Topic}-${movie.id}`} Topic={Topic} movie={movie} />
           ))
         }
       </motion.div>

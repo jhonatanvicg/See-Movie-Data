@@ -3,13 +3,17 @@ import ButtonAdd from "./ButtonAdd";
 import Button from "./Button";
 import { useContext, useEffect, useState } from "react";
 import AppContext from "../context/AppContext";
+import YouTube from "react-youtube";
+import movieTrailer from "movie-trailer";
+import ReactPlayer from 'react-player';
 const base_url = "https://image.tmdb.org/t/p/original/"
 
 
 const Modal = () => {
-
+  let movieID = ''
   const [modalData, setModalData] = useState({})
   const [arrGenres,setArrGenres] = useState([])
+  const [localMovieURL, setLocalMovieURL] = useState('')
   const {closeModal,modalWrapperAnimation,modalAnimation, getModalData} = useContext(AppContext)
   const genres = [{
                     "id":28,"name":"Action"
@@ -51,7 +55,7 @@ const Modal = () => {
                     "id":37,"name":"Western"
                 }]
 
-  
+
   const handleClick = ()=>{
       closeModal()
   }
@@ -65,7 +69,6 @@ const Modal = () => {
     }else{
       name = modalData.original_name
     }
-
     return name;
   }
 
@@ -114,10 +117,13 @@ const Modal = () => {
     }
   }
 
+
+
+
+
   useEffect(()=>{
     setModalData(getModalData())
     getGenres(modalData.genre_ids)
-    console.log("Esta es la data del modal: ",modalData)
   },[modalWrapperAnimation])
   
   return ( 
@@ -129,11 +135,18 @@ const Modal = () => {
         <div className="Modal__Banner">
           <div className="Modal__Banner__Filter">
             <div className="Banner__Filter__Container-Button">
-              <Button classButton={"Btn--Play"} imageSrc={"/images/play-svgrepo-com.svg"} textButton={"Play"}  />
-              <ButtonAdd movie={modalData} />
+              <Button 
+                movieTitle={getMovieName()}  
+                classButton={"Btn--Play"} 
+                imageSrc={"/images/play-svgrepo-com.svg"} 
+                textButton={"Play"}  
+              />
+              <ButtonAdd movie={localMovieURL} />
             </div>
           </div>
           <img className="Modal__Banner__Image" src={getMovieImage()} alt="" />
+
+
         </div>
         <div className="Modal__Main-Info">
           <div className="Modal__Main-Info__Title">

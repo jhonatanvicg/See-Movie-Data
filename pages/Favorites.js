@@ -26,7 +26,7 @@ const Favorites = () => {
           :
 
           favoriteMovies.movieList.map((movie)=>(
-            <RowItem movie={movie} Topic="Favorite--Movie__Item" />
+            <RowItem key={movie.id} movie={movie} Topic="Favorite--Movie__Item" />
           ))
         }
       </div>
