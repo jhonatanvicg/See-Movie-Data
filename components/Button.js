@@ -1,7 +1,13 @@
-const Button = ( {classButton, imageSrc, textButton} ) => {
-  console.log("Este es el prop: ",classButton)
+import Router from "next/router";
+const Button = ( {classButton, imageSrc, textButton,movieTitle} ) => {
+
+  const playMovie = ()=>{
+    Router.push(`/SeeMovie/${movieTitle}`)
+  }
+
+
   return ( 
-    <div className={`Btn ${classButton}`}>
+    <div onClick={()=>playMovie()} className={`Btn ${classButton}`}>
       <img className="Play__Button" src={imageSrc} alt="" />
       {textButton}
     </div>

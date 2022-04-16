@@ -52,7 +52,12 @@ const Banner = () => {
           {bannerInfo.overview}
         </p>
         <div className="Banner__Buttons">
-          <Button classButton={"Btn--Play"} imageSrc={"/images/play-svgrepo-com.svg"} textButton={"Play"} />
+          <Button 
+            classButton={"Btn--Play"} 
+            imageSrc={"/images/play-svgrepo-com.svg"} 
+            textButton={"Play"}
+            movieTitle={getMovieName()} 
+          />
           <div onClick={()=>handleMoreInfo(bannerInfo)} className={`Btn Btn--MoreInfo`}>
             <img className="Play__Button" src="/images/more.png" alt="" />
             More Info

@@ -236,7 +236,7 @@ body{
 }
 
 .TopMovies{
-  height: 400px;
+  height: 300px;
 }
 
 
@@ -374,6 +374,7 @@ body{
   color: white;
   justify-content: center;
   align-items: center;
+  z-index: 99999;
 }
 
 .Modal__Banner{
@@ -408,7 +409,11 @@ body{
   object-fit: cover;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+}
 
+.Modal__Banner__Video{
+  position: relative;
+  z-index: 88888;
 }
 
 .Modal__Main-Info{
@@ -857,4 +862,39 @@ body{
   to{
     right:-300px;
   }
+}
+
+.SeeMovie{
+  width: 100%;
+  height: 100vh;
+  margin-top: 65px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SeeMovie--Trailer{
+  width: 100%;
+  height: 100%;
+}
+
+.SeeMovie--Error{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.SeeMovie--Error img{
+  width: 100px;
+  height: 100px;
+}
+
+.SeeMovie--Error p{
+  margin-left: 15px;
 }

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import movieTrailer from "movie-trailer"
 
 const initialFavoriteMoviesState = {
   movieList: []
@@ -15,7 +16,18 @@ const useModalState = () => {
   const [typeNotification,setTypeNotification] = useState()
   const [textNotification,setTextNotification] = useState()
   const [iconNotification,setIconNotification] = useState()
+  const [globalID,setGlobalID] = useState('');
 
+  const getMovieUrl = (movieTitle)=>{
+    console.log("Recibiendo el titulo de la pelicula: ",movieTitle)
+      movieTrailer(movieTitle).then((res)=>{
+        const urlParams = new URLSearchParams(new URL(res).search);
+        console.log("Parametro desde hook:",urlParams.get("v"))
+        setGlobalID(urlParams.get("v"))
+      }).catch(error=>{
+        console.log(error)
+      })
+  }
 
   const closeModal = ()=>{
     setModalWrapperAnimation("Modal__Wrapper--Hidden")
@@ -23,9 +35,9 @@ const useModalState = () => {
   }
 
   const openModal = ()=>{
-    console.log("Estamos abriendo el modals")
     setModalWrapperAnimation("Modal__Wrapper--Show")
     setModalAnimation("Modal--Show")
+    console.log("Abriendo el modal")
   }
 
   const setModalData = (movie)=>{
@@ -84,10 +96,13 @@ const useModalState = () => {
     textNotification,
     iconNotification,
     favoriteMovies,
+    globalID,
+    setGlobalID,
     setModalData,
     setListSearch,
     listSearch,
     getModalData,
+    getMovieUrl,
     addFavoriteMovie
   }
 }
