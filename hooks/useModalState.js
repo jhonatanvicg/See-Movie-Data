@@ -19,10 +19,8 @@ const useModalState = () => {
   const [globalID,setGlobalID] = useState('');
 
   const getMovieUrl = (movieTitle)=>{
-    console.log("Recibiendo el titulo de la pelicula: ",movieTitle)
       movieTrailer(movieTitle).then((res)=>{
         const urlParams = new URLSearchParams(new URL(res).search);
-        console.log("Parametro desde hook:",urlParams.get("v"))
         setGlobalID(urlParams.get("v"))
       }).catch(error=>{
         console.log(error)
@@ -37,7 +35,6 @@ const useModalState = () => {
   const openModal = ()=>{
     setModalWrapperAnimation("Modal__Wrapper--Show")
     setModalAnimation("Modal--Show")
-    console.log("Abriendo el modal")
   }
 
   const setModalData = (movie)=>{

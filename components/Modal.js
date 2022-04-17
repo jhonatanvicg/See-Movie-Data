@@ -3,9 +3,6 @@ import ButtonAdd from "./ButtonAdd";
 import Button from "./Button";
 import { useContext, useEffect, useState } from "react";
 import AppContext from "../context/AppContext";
-import YouTube from "react-youtube";
-import movieTrailer from "movie-trailer";
-import ReactPlayer from 'react-player';
 const base_url = "https://image.tmdb.org/t/p/original/"
 
 
@@ -13,7 +10,6 @@ const Modal = () => {
   let movieID = ''
   const [modalData, setModalData] = useState({})
   const [arrGenres,setArrGenres] = useState([])
-  const [localMovieURL, setLocalMovieURL] = useState('')
   const {closeModal,modalWrapperAnimation,modalAnimation, getModalData} = useContext(AppContext)
   const genres = [{
                     "id":28,"name":"Action"
@@ -141,7 +137,7 @@ const Modal = () => {
                 imageSrc={"/images/play-svgrepo-com.svg"} 
                 textButton={"Play"}  
               />
-              <ButtonAdd movie={localMovieURL} />
+              <ButtonAdd movie={modalData} />
             </div>
           </div>
           <img className="Modal__Banner__Image" src={getMovieImage()} alt="" />
@@ -158,7 +154,7 @@ const Modal = () => {
         </div>
         <div className="Modal__Extra-Info">
             <div className="Extra-Info__Title">
-              About Movie Title
+              About Movie
               <img src="/images/popcorn-svgrepo-com.svg" alt="" />
             </div>
             <div className="Extra-Info__General">
@@ -174,8 +170,8 @@ const Modal = () => {
                 <p className="General__Item--Genres--String">Genres: </p>
                 {
 
-                  arrGenres.map((genre)=>(
-                    <p className="Item__Genre">{genre}</p>
+                  arrGenres.map((genre,index)=>(
+                    <p className="Item__Genre" key={index}>{genre}</p>
                   ))
                 }
               </div>

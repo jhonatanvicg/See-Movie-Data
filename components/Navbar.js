@@ -12,6 +12,7 @@ const Navbar = ()=>{
   const[screenSize,setScreenSize] = useState({width:0});
   const[showNavbar,setShowNavbar] = useState(true);
   const [search,setSearch] = useState('')
+  const [inputValue,setInputValue] = useState('')
   const { setListSearch } = useContext(AppContext)
   
 
@@ -41,11 +42,13 @@ const Navbar = ()=>{
 
   const clickGoToSearch = ()=>{
     getSearch()
+    setInputValue('')
   }
 
   const handleSearch = (e)=>{
     if(e.target.value!=''){
       setSearch(e.target.value)
+      setInputValue(e.target.value)
     }
   }
 
@@ -106,9 +109,11 @@ const Navbar = ()=>{
 
 
             <div className="Navbar__Search">
-              <input onChange={handleSearch} className="Search__input" type="text" placeholder="Search Movie..." />
+              <input value={inputValue} onChange={handleSearch} className="Search__input" type="text" placeholder="Search Movie..." />
               <Link href="/Search">
-                <img src="/images/search.png" onClick={()=>clickGoToSearch()} alt="" />
+                <button onClick={()=>clickGoToSearch()} >
+                  <img on src="/images/search.png" alt="" />
+                </button>
               </Link>
             </div>
             <div className="Navbar__Min" onClick={()=>{handleNavbarMin()}}>

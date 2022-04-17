@@ -5,7 +5,6 @@ import AppContext from "../context/AppContext"
 
 const ButtonAdd = ( { movie } ) => {
 
-
   const { addFavoriteMovie } = useContext(AppContext)
 
 
