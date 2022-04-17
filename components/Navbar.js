@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react"
+import { AiOutlineMenu, AiOutlineSearch } from "react-icons/ai"
 import axios from "../hooks/useAxios"
 import requests from "../hooks/useRequests";
 import AppContext from "../context/AppContext";
@@ -77,10 +78,7 @@ const Navbar = ()=>{
 
   return(
     <>
-      <div className="Navbar__Min">
-        <p>Discover</p>
-        <img src="/images/left-arrow-svgrepo-com.svg" alt="" onClick={()=> handleNavbarMin() }/>
-      </div>
+ 
 
       <nav className={`Navbar__Wrapper ${showNavbar && "Navbar__Wrapper--Show"}`}>
           <div className="Navbar">
@@ -90,7 +88,6 @@ const Navbar = ()=>{
                       <img src="/images/popcorn-svgrepo-com.svg" alt="" />
                 </div>
               </Link>
-
             <div className={ NavbarScreen == true && screenSize.width < 1176 ? "Navbar__Options--FullWindow" : "Navbar__Options"  }>
               <Link href="/" >
                 <p onClick={()=>{optionsClicked()}}>Home</p>
@@ -111,9 +108,12 @@ const Navbar = ()=>{
             <div className="Navbar__Search">
               <input onChange={handleSearch} className="Search__input" type="text" placeholder="Search..." />
               <Link href="/Search">
-                <img src="/images/search-svgrepo-com.svg" onClick={()=>clickGoToSearch()} alt="" />
+                <img src="/images/search.png" onClick={()=>clickGoToSearch()} alt="" />
               </Link>
             </div>
+            <div className="Navbar__Min" onClick={()=>{handleNavbarMin()}}>
+                <AiOutlineMenu size="30px" />
+              </div>
           </div>
 
         </nav>
