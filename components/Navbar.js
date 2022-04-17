@@ -106,7 +106,7 @@ const Navbar = ()=>{
 
 
             <div className="Navbar__Search">
-              <input onChange={handleSearch} className="Search__input" type="text" placeholder="Search..." />
+              <input onChange={handleSearch} className="Search__input" type="text" placeholder="Search Movie..." />
               <Link href="/Search">
                 <img src="/images/search.png" onClick={()=>clickGoToSearch()} alt="" />
               </Link>
