@@ -74,7 +74,6 @@ const RowItem = ({Topic, movie}) => {
       case "PlayTrailer":
         action = "GoMovie"
         Router.push(`/SeeMovie/${getMovieName()}`)
-        console.log("LLendo a ver la pelicula")
       break;
       case "GoMovie":
         action = "GoMovie"
@@ -99,7 +98,7 @@ const RowItem = ({Topic, movie}) => {
 
 
   return ( 
-    <motion.div  onMouseDown={()=>handleClickDown()} ref={itemReference}  onMouseUp={()=>{handleClickUp()}} className={`RowItem ${Topic}`}>
+    <div  onMouseDown={()=>handleClickDown()} ref={itemReference}  onMouseUp={()=>{handleClickUp()}} className={`RowItem ${Topic}`}>
       <div className="Item__Filter">
         <div className="Filter__Movie">
           <div className="Filter__Movie__Options">
@@ -120,10 +119,7 @@ const RowItem = ({Topic, movie}) => {
         </div>
       </div>
       <img  className="RowItem__Poster" src={getMovieImage()} alt="" />
-      {
-        //movieURL && <YouTube className="Modal__Banner__Video" videoId={movieURL} opts={opts} onReady={onPlayerReady}/>
-      }
-    </motion.div>
+    </div>
    );
 }
  

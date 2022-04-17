@@ -214,10 +214,61 @@ body{
 .Row{
   margin-top: 20px;
   width: 100%;
-  padding: 15px 0;
+  height: auto;
   overflow: hidden;
   touch-action: pan-x;
+  position: relative;
+}
 
+.Row__Helper{
+  padding: 15px 0;
+  scroll-behavior: smooth;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+
+.Row__Arrow-Right, .Row__Arrow-Left{
+  position: absolute;
+  z-index: 88888;
+  width:50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+  transition: .5s;
+
+}
+
+.Row__Arrow-Right{
+  margin-left: 10px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.Row__Arrow-Left{
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+
+.Row__Arrow-Left:hover,.Row__Arrow-Right:hover{
+  transition: .5s;
+  background: #000000d2;
+}
+
+
+.Arrow__Top-Movies{
+  height: 300px; 
+  top: 65px;
+}
+
+.Arrow__Normal{
+  top: 65px;
+  height: 150px;
 }
 
 .Row__Name{

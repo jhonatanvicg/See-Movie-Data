@@ -10,21 +10,21 @@ const ContainerMovies = ({ from }) => {
       {
         from=="index" ?
           <>
-            <Row rowTitle={"Movies Data Trending"} Topic={"TopMovies"} fetchUrl={requests.fetchTopRated} />
-            <Row rowTitle={"Movie Data Originals"} fetchUrl={requests.fetchNetflixOriginals} />
-            <Row rowTitle={"Trend"} fetchUrl={requests.fetchTrending} />
-            <Row rowTitle={"Romance"} fetchUrl={requests.fetchRomanceMovies}/>
-            <Row rowTitle={"Action"} fetchUrl={requests.fetchActionMovies} />
-            <Row rowTitle={"Comedy"} fetchUrl={requests.fetchComedyMovies} />
-            <Row rowTitle={"Horror"} fetchUrl={requests.fetchHorrorMovies} />
+            <Row rowTitle={"Movies Data Trending"} Topic={"TopMovies"} fetchUrl={requests.fetchTopRated} sectionArrow="Arrow__Top-Movies" />
+            <Row rowTitle={"Movie Data Originals"} fetchUrl={requests.fetchNetflixOriginals} sectionArrow="Arrow__Normal" />
+            <Row rowTitle={"Trend"} fetchUrl={requests.fetchTrending} sectionArrow="Arrow__Normal" />
+            <Row rowTitle={"Romance"} fetchUrl={requests.fetchRomanceMovies} sectionArrow="Arrow__Normal"/>
+            <Row rowTitle={"Action"} fetchUrl={requests.fetchActionMovies} sectionArrow="Arrow__Normal" />
+            <Row rowTitle={"Comedy"} fetchUrl={requests.fetchComedyMovies} sectionArrow="Arrow__Normal" />
+            <Row rowTitle={"Horror"} fetchUrl={requests.fetchHorrorMovies} sectionArrow="Arrow__Normal" />
           </>
         : from=="Movies" ?
           requests.arrGenresMoviesId.map(genreElement =>(
-            <Row rowTitle={genreElement.name} fetchUrl={requests.fetchMovieByGenre + genreElement.id} />
+            <Row rowTitle={genreElement.name} fetchUrl={requests.fetchMovieByGenre + genreElement.id} sectionArrow="Arrow__Normal" />
             ))
             :
             requests.arrGenresTVId.map(genreElement =>(
-              <Row rowTitle={genreElement.name} fetchUrl={requests.fetchTVByGenre + genreElement.id} />
+              <Row rowTitle={genreElement.name} fetchUrl={requests.fetchTVByGenre + genreElement.id} sectionArrow="Arrow__Normal" />
             ))
           
           
