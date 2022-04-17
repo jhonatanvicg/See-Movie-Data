@@ -87,21 +87,21 @@ body{
 .Search__input{
   width: 70%;
   padding: 5px;
-  border-radius: 5px;
   outline: none;
   background: none;
   color: white;
   text-align: center;
+  border-radius: 15px;
 }
 
-.Navbar__Search  img{
-  cursor: pointer;
-}
 
 .Navbar__Search img{ 
-  width: 30px;
-  height: 30px;
-  transform: rotate(-90deg);
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  border-radius: 10px;
+  background:#0f81de5b;
 }
 .Navbar__Min{
   display: none;
@@ -231,7 +231,7 @@ body{
 
 .Row__Arrow-Right, .Row__Arrow-Left{
   position: absolute;
-  z-index:4444;
+  z-index:44;
   width:50px;
   display: flex;
   align-items: center;
@@ -587,7 +587,7 @@ body{
   width: 90%;
   height: auto;
   margin-left: 5%;
-  margin-top: 80px;
+  margin-top: 80px; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -683,13 +683,14 @@ body{
     top: 65px;
     left: 0;
     width: 100vw;
-    height: 90vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     background: #16182ce9;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
+    z-index: 9999;
   }
 
   .Navbar__Options--FullWindow p:nth-child(1){
@@ -704,10 +705,8 @@ body{
   .Navbar__Min{
     z-index: 99999;
     position: relative;
-    margin: 70px auto 0px;
     color: white;
     display: flex;
-    width: 150px;
     align-items: center;
     justify-content: space-around;
   }
@@ -715,7 +714,6 @@ body{
     font-size: 20px;
   }
   .Navbar__Min img{
-    transform: rotate(-90deg);
     width: 25px;
     height: 25px;
     cursor: pointer;
@@ -733,18 +731,15 @@ body{
   .Search__input{
     width: 70%;
     padding: 5px;
-    border-radius: 5px;
     outline: none;
     background: none;
     color: white;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.436);
   }
   
   .Navbar__Search img{ 
     width: 30px;
     height: 30px;
-    transform: rotate(-90deg);
   }
 
   .Favorites{
