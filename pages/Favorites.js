@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import RowItem from "../components/RowItem";
 import AppContext from "../context/AppContext";
 import Modal from "../components/Modal";
+import Notification from "../components/Notification";
 
 
 const Favorites = () => {
@@ -13,6 +14,7 @@ const Favorites = () => {
 
   return ( 
     <>
+      <Notification />
       <Modal/>
       <div className="Favorites">
         {

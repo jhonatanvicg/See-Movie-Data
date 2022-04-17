@@ -15,7 +15,6 @@ const Banner = () => {
 
 
   const handleMoreInfo = (movie)=>{
-    console.log("Clickando more")
     setModalData(movie)
     openModal()
   }
