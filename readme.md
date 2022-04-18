@@ -12,13 +12,15 @@ Yep, it's like a generic movies site, maybe you can't see the movies, but yo can
 
 You can:
 
-    :heavy_check_mark: Check a synopsis for the movies.
-    :heavy_check_mark: Make a favorites list.
-    :heavy_check_mark: Search for and specific movie.
+    ✔ Check a synopsis for the movies.
+    ✔ Make a favorites list.
+    ✔ Search for and specific movie.
 
 Note:warning:
 
-If you cloned the repo and want to try it locale, you need a `Key API`, don't worry you can get it in [themoviedb](https://www.themoviedb.org/)
+If you cloned the repo and want to try it locale, you need a `Key API`, don't worry you can get it in [themoviedb](https://www.themoviedb.org/):movie_camera:
+
+And when you have it, create a file named `.env.local` in the root of the project, the content of the file it will be: `NEXT_PUBLIC_ APIKEY="YOUR API KEY HERE WITHOUT THE QUOTES"`:heart_on_fire:
 
 ## API
 
